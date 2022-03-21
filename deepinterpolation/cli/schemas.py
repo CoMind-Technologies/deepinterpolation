@@ -145,6 +145,21 @@ class GeneratorSchema(argschema.schemas.DefaultSchema):
             MultiContinuousTifGenerator)"
     )
 
+    data_proc_path = argschema.fields.String(
+        required=True,
+        default="",
+        description="Path to the file containing the processed data \
+                     from the interferograms.\
+                     Usually this will be a full filepath. In some \
+                     cases, this can point to a folder"
+    )
+
+    data_json_path = argschema.fields.String(
+        required=True,
+        description="Path to the json file defining the acquisition and processing \
+               of the interferometric data."
+    )
+
     batch_size = argschema.fields.Int(
         required=False,
         default=5,
@@ -599,8 +614,7 @@ class TrainingInputSchema(argschema.ArgSchema):
     )
     training_params = argschema.fields.Nested(TrainingSchema, default={})
     generator_params = argschema.fields.Nested(GeneratorSchema, default={})
-    test_generator_params = argschema.fields.Nested(GeneratorSchema,
-                                                    default={})
+    test_generator_params = argschema.fields.Nested(GeneratorSchema, default={})
     network_params = argschema.fields.Nested(NetworkSchema, default={})
     output_full_args = argschema.fields.Bool(
         required=False,
