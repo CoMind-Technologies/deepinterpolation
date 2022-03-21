@@ -72,7 +72,8 @@ Our integration tests on the CI server are currently running with python 3.7. Wh
 
 * install deepinterpolation package
 
-	python setup.py install
+	python setup.py install or pip install -e . to reflect code changes
+
 
 # **Descrition and use of the Command Line Interface (CLI).** 
 
